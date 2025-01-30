@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
 
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        #messageContainer {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Simple Web Page</h1>
+        <p>This is a basic web page with a light gradient background and some interactive elements. Click the button below to see a message!</p>
+        
+        <button class="button" onclick="showMessage()">Click Me!</button>
+        <div id="messageContainer"></div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const messages = [
+                "Hello! Welcome to this web page!",
+                "You clicked the button!",
+                "Have a great day!",
+                "JavaScript is working!",
+                "Thanks for visiting!"
+            ];
+            
+            const messageContainer = document.getElementById('messageContainer');
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            messageContainer.style.display = 'block';
+            messageContainer.style.backgroundColor = '#e8f4f8';
+            messageContainer.textContent = randomMessage;
+            
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                messageContainer.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
